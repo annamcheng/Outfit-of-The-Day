@@ -27,13 +27,15 @@ $(() => {
     const zipcode = $("input").val();
 
     $.ajax({
-      url: `https://api.openweathermap.org/data/2.5/forecast?zip=${zipcode}&appid=8427b9145053fa92079d70aa4f4483ee`,
+      url: `https://api.openweathermap.org/data/2.5/forecast?zip=${zipcode}&units=imperial&appid=8427b9145053fa92079d70aa4f4483ee`,
     }).then((data) => {
-      $("#description").html(data.list[0].weather[0].description);
-      $("#tempHigh").html(data.list[0].main["temp_max"]);
-      $("#tempLow").html(data.list[0].main["temp_min"]);
-      $("#windSpeed").html(data.list[0].wind.speed);
-      $("#humidity").html(data.list[0].main.humidity);
+      for (let i = 0; i < data.list.length; i++) {
+        $(`#description${i}`).html(data.list[i].weather[0].description);
+        $(`#tempHigh${i}`).html(data.list[i].main["temp_max"]);
+        $(`#tempLow${i}`).html(data.list[i].main["temp_min"]);
+        $(`#windSpeed${i}`).html(data.list[i].wind.speed);
+        $(`#humidity${i}`).html(data.list[i].main.humidity);
+      }
     });
   });
 });
