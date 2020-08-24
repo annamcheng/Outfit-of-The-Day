@@ -32,3 +32,6 @@ h1 {
     height: 300px;
 }
 
+.weatherChart {
+    border:1px solid black;
+}
