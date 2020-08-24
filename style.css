@@ -2,6 +2,7 @@ body {
   font-family: "Lobster Two", cursive;
   text-align: center;
   background-color: aliceblue;
+  margin: 0 auto;
 }
 
 h1 {
@@ -34,4 +35,8 @@ h1 {
 
 .weatherChart {
     border:1px solid black;
+}
+
+table{
+    margin: 0 auto;
 }

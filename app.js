@@ -1,6 +1,9 @@
 $(() => {
   const $container = $("<div class='container'>");
   const dayOfTheWeek = ["monday", "tuesday", "wednesday", "thursday", "friday"];
+  const fahrenheitSymbol = $("<span>&#8457;</span>");
+  const percentageSymbol = $("<span>&#37;</span>");
+
   $("body").append($container);
 
   for (let i = 0; i < 5; i++) {
@@ -36,6 +39,10 @@ $(() => {
         $(`#windSpeed${i}`).html(data.list[i].wind.speed);
         $(`#humidity${i}`).html(data.list[i].main.humidity);
       }
+      $(".windSpeed").append(" mph");
+      $(".tempHigh").append(fahrenheitSymbol);
+      $(".tempLow").append(fahrenheitSymbol);
+      $(".humidity").append(percentageSymbol);
     });
   });
 });
