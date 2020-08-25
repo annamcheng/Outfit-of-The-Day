@@ -33,10 +33,8 @@ h1 {
     height: 350px;
 }
 
-.weatherChart {
-    border:1px solid black;
+.outfit-images > img {
+    width: 80%;
+    padding: 10px;
 }
 
-table{
-    margin: 0 auto;
-}
