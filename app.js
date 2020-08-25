@@ -1,5 +1,31 @@
 $(() => {
-  const $container = $("<div class='container'>");
+  // CAROUSEL
+  let currentImgIndex = 0;
+  let lastImgIndex = $(".outfit-images").children().length - 1;
+  const $outfitChildrenImg = $(".outfit-images").children();
+
+  $(".left").on("click", () => {
+    $outfitChildrenImg.eq(currentImgIndex).css("display", "none");
+
+    if (currentImgIndex < lastImgIndex) {
+      currentImgIndex++;
+    } else {
+      currentImgIndex = 0;
+    }
+    $outfitChildrenImg.eq(currentImgIndex).css("display", "block");
+  });
+
+  $(".right").on("click", () => {
+    $outfitChildrenImg.eq(currentImgIndex).css("display", "none");
+    if (currentImgIndex > 0) {
+      currentImgIndex--;
+    } else {
+      currentImgIndex = lastImgIndex;
+    }
+    $outfitChildrenImg.eq(currentImgIndex).css("display", "block");
+  });
+
+  const $container = $("<div class='week-container'>");
   const dayOfTheWeek = ["monday", "tuesday", "wednesday", "thursday", "friday"];
   const fahrenheitSymbol = $("<span>&#8457;</span>");
   const percentageSymbol = $("<span>&#37;</span>");
@@ -14,14 +40,32 @@ $(() => {
   }
 
   for (let i = 0; i < 5; i++) {
-      const $forecastDiv = $(`<div id="${dayOfTheWeek[i]}" class="forecast"></div>`);
-      const $description = $(`<span>Description: </span><span id='description${i}' class="description"></span><br />`);
-      const $tempHigh = $(`<span>Temp High: </span><span id='tempHigh${i}' class='tempHigh'></span><br />`);
-      const $tempLow = $(`<span>Temp Low: </span><span id='tempLow${i}' class='tempLow'></span><br />`);
-      const $windSpeed = $(`<span>Wind Speed: </span><span id='windSpeed${i}' class='windSpeed'></span><br />`);
-      const $humidity = $(`<span>Humidity: </span><span id='humidity${i}' class='humidity'></span><br />`);
-      $container.append($forecastDiv);
-      $forecastDiv.append($description, $tempHigh, $tempLow, $windSpeed, $humidity)
+    const $forecastDiv = $(
+      `<div id="${dayOfTheWeek[i]}" class="forecast"></div>`
+    );
+    const $description = $(
+      `<span>Description: </span><span id='description${i}' class="description"></span><br />`
+    );
+    const $tempHigh = $(
+      `<span>Temp High: </span><span id='tempHigh${i}' class='tempHigh'></span><br />`
+    );
+    const $tempLow = $(
+      `<span>Temp Low: </span><span id='tempLow${i}' class='tempLow'></span><br />`
+    );
+    const $windSpeed = $(
+      `<span>Wind Speed: </span><span id='windSpeed${i}' class='windSpeed'></span><br />`
+    );
+    const $humidity = $(
+      `<span>Humidity: </span><span id='humidity${i}' class='humidity'></span><br />`
+    );
+    $container.append($forecastDiv);
+    $forecastDiv.append(
+      $description,
+      $tempHigh,
+      $tempLow,
+      $windSpeed,
+      $humidity
+    );
   }
 
   for (let i = 0; i < 5; i++) {

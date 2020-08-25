@@ -10,7 +10,7 @@ h1 {
   color: rgba(45, 94, 147, 0.454);
 }
 
-.container {
+.week-container {
   border: 2px solid black;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
@@ -32,9 +32,38 @@ h1 {
     border: 1px solid purple;
     height: 350px;
 }
-
-.outfit-images > img {
-    width: 80%;
-    padding: 10px;
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.carousel-container{
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outfit-images > img {
+    height: 300px;
+    object-fit: cover;
+    border: 5px solid firebrick;
+    padding: 20px;
+    display: none;
+}
+
+.outfit-images img:first-of-type{
+    display: block;
+}
+
+.carousel-button{
+    align-self: center;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+.carousel-button:hover {
+    background-color: rgba(250, 171, 142, 0.692);
+}
