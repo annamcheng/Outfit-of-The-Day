@@ -8,6 +8,8 @@
             href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&display=swap"
             rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet"
+            href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
         <script src="http://code.jquery.com/jquery-3.5.1.min.js"
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="crossorigin="anonymous"></script>
         <script src="app.js"></script>
@@ -15,11 +17,34 @@
     </head>
     <body>
         <h1>Outfit of The Day</h1>
+        <!-- CAROUSEL -->
+        <div class="carousel-container">
+            <div class="carousel-button left">
+                <span class="lnr lnr-shirt"></span>
+            </div>
+            <div class="outfit-images">
+                <img src="flowy-top-striped.png" alt="Flowy white top with blue striped flowy bottom">
+                <img src="summer-dress.png" alt="Red orange v-neck summer dress with laced waist">
+                <img src="denim-romper.png" alt="Denim romper with strapped and ruffles">
+                <img src="striped-dress.png" alt="Linen summer dress with beige stripes">
+                <img src="two-piece-dress.png" alt="Two piece light salmon shirt and skirt">
+                <img src="tank-shorts.png" alt="Casual white button down tank top with forest green linen shorts">
+                <img src="tank-skirt.png" alt="Classic white tank with belted brown skirt">
+                <img src="t-jeans.png" alt="Bow tie classic T-Shirt with ripped jeans">
+                <img src="cardigan-t2.png" alt="Flower printed T-Shirt with burgundy red carigan paired with washed jeans">
+                <img src="knit-jeans.png" alt="Creamy turtleneck knit sweater with light wash jeans and light brown fedora ">
+                <img src="sweater-weather1.png" alt="Creamy turtleneck sweater with grey plaid skirt and taupe booties">
+                <img src="sweater-weather.png" alt="Snow white mock neck sweater with feather print red flowy skirt paired with black knee high boots">
+                <img src="stripes-jeans.png" alt="Multi-colored sweater with light wash boyfriend jeans and classic white keds">
+                <img src="plaid-skaterdress.png" alt="Classic black and red plaid button down paired with dark navy skaterdress and tan booties">
+            </div>
+        </div>
+
         <form>
             <input type="text" placeholder="Enter your zip code">
             <input type="submit" value="Submit">
         </form>
-        <br />
+
         <!-- <table class="weatherChart">
             <tr>
                 <th></th>
@@ -71,6 +96,5 @@
                 <td id="humidity4" class="humidity">Loading...</td>
             </tr>
         </table> -->
-        <br />
     </body>
 </html>
