@@ -1,28 +1,38 @@
 $(() => {
   // CAROUSEL
-  let currentImgIndex = 0;
-  let lastImgIndex = $(".outfit-images").children().length - 1;
-  const $outfitChildrenImg = $(".outfit-images").children();
+  $(".carousel-container").hide();
+  const $submitButton = $(
+    "<button id='closet-button'>> What's in your closet? <</button>"
+  );
+  $(".container").append($submitButton);
 
-  $(".left").on("click", () => {
-    $outfitChildrenImg.eq(currentImgIndex).css("display", "none");
+  $submitButton.on("click", () => {
+    $submitButton.hide();
+    $(".carousel-container").fadeIn(1500);
+    let currentImgIndex = 0;
+    let lastImgIndex = $(".outfit-images").children().length - 1;
+    const $outfitChildrenImg = $(".outfit-images").children();
 
-    if (currentImgIndex < lastImgIndex) {
-      currentImgIndex++;
-    } else {
-      currentImgIndex = 0;
-    }
-    $outfitChildrenImg.eq(currentImgIndex).css("display", "block");
-  });
+    $(".left").on("click", () => {
+      $outfitChildrenImg.eq(currentImgIndex).css("display", "none");
 
-  $(".right").on("click", () => {
-    $outfitChildrenImg.eq(currentImgIndex).css("display", "none");
-    if (currentImgIndex > 0) {
-      currentImgIndex--;
-    } else {
-      currentImgIndex = lastImgIndex;
-    }
-    $outfitChildrenImg.eq(currentImgIndex).css("display", "block");
+      if (currentImgIndex < lastImgIndex) {
+        currentImgIndex++;
+      } else {
+        currentImgIndex = 0;
+      }
+      $outfitChildrenImg.eq(currentImgIndex).css("display", "block");
+    });
+
+    $(".right").on("click", () => {
+      $outfitChildrenImg.eq(currentImgIndex).css("display", "none");
+      if (currentImgIndex > 0) {
+        currentImgIndex--;
+      } else {
+        currentImgIndex = lastImgIndex;
+      }
+      $outfitChildrenImg.eq(currentImgIndex).css("display", "block");
+    });
   });
 
   const $container = $("<div class='week-container'>");
