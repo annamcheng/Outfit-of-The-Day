@@ -1,12 +1,12 @@
 body {
-  font-family: 'Arima Madurai', cursive;
+  font-family: "Arima Madurai", cursive;
   text-align: center;
   background-color: aliceblue;
   margin: 0 auto;
 }
 
 h1 {
-  font-family: 'Lobster Two', cursive;
+  font-family: "Lobster Two", cursive;
   text-decoration: underline;
   color: rgba(45, 94, 147, 0.454);
 }
@@ -24,67 +24,86 @@ h1 {
   height: 30px;
 }
 
-.forecast{
-    border: 1px solid orangered;
-    height: 220px;
+.forecast {
+  border: 1px solid orangered;
+  height: 220px;
 }
 
-.outfit{
-    border: 1px solid purple;
-    height: 350px;
+.outfit {
+  border: 1px solid purple;
+  height: 350px;
 }
 
-#closet-button{
-    font-family: 'Arima Madurai', cursive;
-    font-size: 14px;
-    text-transform: uppercase;
-    cursor: pointer;
-    padding: 5px;
-    cursor: pointer;
-    background-color: floralwhite;
-    border-radius: 10px;
-    letter-spacing: 1px;
+#closet-button {
+  font-family: "Arima Madurai", cursive;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 8px;
+  cursor: pointer;
+  background-color: floralwhite;
+  border-radius: 10px;
+  letter-spacing: 1px;
 }
 
-#closet-button:hover{
-    color: 
+#closet-button:hover {
+  background-color: rgb(250, 237, 212);
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.carousel-container{
-    width: 500px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.carousel-container {
+  margin-bottom: 10px;
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .outfit-images > img {
-    height: 300px;
-    object-fit: cover;
-    border: 1px solid firebrick;
-    padding: 20px;
-    display: none;
+  height: 300px;
+  object-fit: cover;
+  padding: 20px;
+  display: none;
 }
 
-.outfit-images img:first-of-type{
-    display: block;
+.outfit-images img:first-of-type {
+  display: block;
 }
 
-.carousel-button{
-    align-self: center;
-    cursor: pointer;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.495);
-    border-radius: 20px;
-    padding: 10px;
+.carousel-button {
+  align-self: center;
+  cursor: pointer;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.495);
+  border-radius: 20px;
+  padding: 10px;
 }
 
 .carousel-button:hover {
-    background-color: rgba(250, 171, 142, 0.692);
+  background-color: rgba(250, 171, 142, 0.692);
 }
+/* 
+.draggable {
+  width: 100px;
+  height: 100px;
+  padding: 0.5em;
+  float: left;
+  margin: 10px 10px 10px 0;
+  border: 1px solid salmon;
+}
+.droppable {
+  border: 1px solid purple;
+ height: 350px;
 
+  width: 150px;
+  height: 150px;
+  padding: 0.5em;
+  float: left;
+  margin: 10px;
+  border: 1px solid blue; 
+} */

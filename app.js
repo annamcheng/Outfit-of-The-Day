@@ -2,7 +2,7 @@ $(() => {
   // CAROUSEL
   $(".carousel-container").hide();
   const $submitButton = $(
-    "<button id='closet-button'>> What's in your closet? <</button>"
+    "<button id='closet-button'> What's in your closet? </button>"
   );
   $(".container").append($submitButton);
 
@@ -36,7 +36,9 @@ $(() => {
   });
 
   const $container = $("<div class='week-container'>");
+  //CHANGE THE DAY OF THE WEEK TO BE DYNAMIC
   const dayOfTheWeek = ["monday", "tuesday", "wednesday", "thursday", "friday"];
+
   const fahrenheitSymbol = $("<span>&#8457;</span>");
   const percentageSymbol = $("<span>&#37;</span>");
 
@@ -52,6 +54,9 @@ $(() => {
   for (let i = 0; i < 5; i++) {
     const $forecastDiv = $(
       `<div id="${dayOfTheWeek[i]}" class="forecast"></div>`
+    );
+    const $date = $(
+      `<span>Date: </span><span id='date${i}' class="date"></span><br />`
     );
     const $description = $(
       `<span>Description: </span><span id='description${i}' class="description"></span><br />`
@@ -70,6 +75,7 @@ $(() => {
     );
     $container.append($forecastDiv);
     $forecastDiv.append(
+      $date,
       $description,
       $tempHigh,
       $tempLow,
@@ -80,10 +86,29 @@ $(() => {
 
   for (let i = 0; i < 5; i++) {
     const $outfitDiv = $(
-      `<div id="${dayOfTheWeek[i]}${i}"  class="outfit"></div>`
+      `<div id="${dayOfTheWeek[i]}${i}"  class="ui-widget-header droppable outfit"></div>`
     );
     $container.append($outfitDiv);
   }
+
+  // const $draggable = $("<div class='ui-widget-content draggable'>")
+  // const $p = $("<p>Drag me!!</p>")
+  // const $droppable = $("<div class='ui-widget-header droppable'>")
+  // const $p2 = $("<p>Drop here</p>")
+
+  // $draggable.append($p)
+  // $droppable.append($('.outfit'))
+  // $('body').append($draggable, $droppable)
+
+  $(function () {
+    $(".draggable").draggable();
+    $(".droppable").droppable({
+        drop: function (event, ui) {
+            event.preventDefault();
+        $(this).addClass("ui-state-highlight").find($("img")).html("Dropped!");
+      },
+    });
+  });
 
   $("form").on("submit", (event) => {
     event.preventDefault();
@@ -93,6 +118,7 @@ $(() => {
       url: `https://api.openweathermap.org/data/2.5/forecast?zip=${zipcode}&units=imperial&appid=8427b9145053fa92079d70aa4f4483ee`,
     }).then((data) => {
       for (let i = 0; i < data.list.length; i++) {
+        $(`#date${i}`).html(data.list[i].dt_txt);
         $(`#description${i}`).html(data.list[i].weather[0].main);
         $(`#tempHigh${i}`).html(data.list[i].main["temp_max"]);
         $(`#tempLow${i}`).html(data.list[i].main["temp_min"]);
