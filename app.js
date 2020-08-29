@@ -1,40 +1,4 @@
 $(() => {
-  // CAROUSEL
-  $(".carousel-container").hide();
-  const $submitButton = $(
-    "<button id='closet-button'> What's in your closet? </button>"
-  );
-  $(".container").append($submitButton);
-
-  $submitButton.on("click", () => {
-    $submitButton.hide();
-    $(".carousel-container").fadeIn(1500);
-    let currentImgIndex = 0;
-    let lastImgIndex = $(".outfit-images").children().length - 1;
-    const $outfitChildrenImg = $(".outfit-images").children();
-
-    $(".left").on("click", () => {
-      $outfitChildrenImg.eq(currentImgIndex).css("display", "none");
-
-      if (currentImgIndex < lastImgIndex) {
-        currentImgIndex++;
-      } else {
-        currentImgIndex = 0;
-      }
-      $outfitChildrenImg.eq(currentImgIndex).css("display", "block");
-    });
-
-    $(".right").on("click", () => {
-      $outfitChildrenImg.eq(currentImgIndex).css("display", "none");
-      if (currentImgIndex > 0) {
-        currentImgIndex--;
-      } else {
-        currentImgIndex = lastImgIndex;
-      }
-      $outfitChildrenImg.eq(currentImgIndex).css("display", "block");
-    });
-  });
-
   const $container = $("<div class='week-container'>");
   //CHANGE THE DAY OF THE WEEK TO BE DYNAMIC
   const dayOfTheWeek = ["monday", "tuesday", "wednesday", "thursday", "friday"];
@@ -91,21 +55,14 @@ $(() => {
     $container.append($outfitDiv);
   }
 
-  // const $draggable = $("<div class='ui-widget-content draggable'>")
-  // const $p = $("<p>Drag me!!</p>")
-  // const $droppable = $("<div class='ui-widget-header droppable'>")
-  // const $p2 = $("<p>Drop here</p>")
-
-  // $draggable.append($p)
-  // $droppable.append($('.outfit'))
-  // $('body').append($draggable, $droppable)
-
   $(function () {
     $(".draggable").draggable();
     $(".droppable").droppable({
-        drop: function (event, ui) {
-            event.preventDefault();
-        $(this).addClass("ui-state-highlight").find($("img")).html("Dropped!");
+      drop: function (event, ui) {
+        $(this)
+          .addClass("ui-state-highlight")
+          .find($("img"))
+          .css("background", "white");
       },
     });
   });

@@ -68,12 +68,25 @@ h1 {
   height: 300px;
   object-fit: cover;
   padding: 20px;
-  display: none;
+  /* display: none; */
+  display: inline-block;
 }
 
-.outfit-images img:first-of-type {
-  display: block;
+@media only screen and (max-width: 600px){
+  img {
+    object-fit: cover;
+    width: 80px;
+  }
 }
+
+.outfit-images > img:hover {
+  opacity: 75%;
+  cursor: pointer;
+}
+
+/* .outfit-images img:first-of-type {
+  display: block;
+} */
 
 .carousel-button {
   align-self: center;
@@ -87,23 +100,3 @@ h1 {
 .carousel-button:hover {
   background-color: rgba(250, 171, 142, 0.692);
 }
-/* 
-.draggable {
-  width: 100px;
-  height: 100px;
-  padding: 0.5em;
-  float: left;
-  margin: 10px 10px 10px 0;
-  border: 1px solid salmon;
-}
-.droppable {
-  border: 1px solid purple;
- height: 350px;
-
-  width: 150px;
-  height: 150px;
-  padding: 0.5em;
-  float: left;
-  margin: 10px;
-  border: 1px solid blue; 
-} */
