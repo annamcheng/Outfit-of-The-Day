@@ -1,7 +1,7 @@
 $(() => {
   const $container = $("<div class='week-container'>");
   //CHANGE THE DAY OF THE WEEK TO BE DYNAMIC
-  const dayOfTheWeek = ["monday", "tuesday", "wednesday", "thursday", "friday"];
+  const $squares = ["one", "two", "three", "four", "five"];
   const $closeButton = $("<br /><button id='close-button'>Close closet</button><br />")
   const fahrenheitSymbol = $("<span>&#8457;</span>");
   const percentageSymbol = $("<span>&#37;</span>");
@@ -12,7 +12,7 @@ $(() => {
     $("#drag-msg").show();
     $("#closet-button").hide();
     $('body').append($closeButton)
-    $closeButton.show()
+      $closeButton.show()
   });
 
   $closeButton.on("click", () => {
@@ -23,18 +23,13 @@ $(() => {
   });
 
   for (let i = 0; i < 5; i++) {
-    const $weekDiv = $(
-      `<div class="week">${dayOfTheWeek[i].toUpperCase()}</div>`
-    );
+    const $weekDiv = $(`<div class="week" id="date${i}">Date . . .</div>`);
     $container.append($weekDiv);
   }
 
   for (let i = 0; i < 5; i++) {
     const $forecastDiv = $(
-      `<div id="${dayOfTheWeek[i]}" class="forecast"></div>`
-    );
-    const $date = $(
-      `<span>Date: </span><span id='date${i}' class="date"></span><br />`
+      `<div id="${$squares[i]}" class="forecast"></div>`
     );
     const $description = $(
       `<span>Description: </span><span id='description${i}' class="description"></span><br />`
@@ -53,7 +48,6 @@ $(() => {
     );
     $container.append($forecastDiv);
     $forecastDiv.append(
-      $date,
       $description,
       $tempHigh,
       $tempLow,
@@ -64,7 +58,7 @@ $(() => {
 
   for (let i = 0; i < 5; i++) {
     const $outfitDiv = $(
-      `<div id="${dayOfTheWeek[i]}${i}"  class="ui-widget-header droppable outfit"></div>`
+      `<div id="${$squares[i]}${i}"  class="ui-widget-header droppable outfit"></div>`
     );
     $container.append($outfitDiv);
   }
@@ -86,15 +80,15 @@ $(() => {
     const zipcode = $("input").val();
 
     $.ajax({
-      url: `https://api.openweathermap.org/data/2.5/forecast?zip=${zipcode}&units=imperial&appid=8427b9145053fa92079d70aa4f4483ee`,
-    }).then((data) => {
-      for (let i = 0; i < data.list.length; i++) {
-        $(`#date${i}`).html(data.list[i].dt_txt);
-        $(`#description${i}`).html(data.list[i].weather[0].main);
-        $(`#tempHigh${i}`).html(data.list[i].main["temp_max"]);
-        $(`#tempLow${i}`).html(data.list[i].main["temp_min"]);
-        $(`#windSpeed${i}`).html(data.list[i].wind.speed);
-        $(`#humidity${i}`).html(data.list[i].main.humidity);
+        url: `https://api.weatherbit.io/v2.0/forecast/daily?&postal_code=${zipcode}&units=I&key=c48676848e2c4f5aa45c0fa1eeaf5e90`,
+    }).then((info) => {
+      for (let i = 0; i < info.data.length; i++) {
+        $(`#date${i}`).html(info.data[i].valid_date);
+        $(`#description${i}`).html(info.data[i].weather.description);
+        $(`#tempHigh${i}`).html(info.data[i].max_temp);
+        $(`#tempLow${i}`).html(info.data[i].low_temp);
+        $(`#windSpeed${i}`).html(info.data[i].wind_spd);
+        $(`#humidity${i}`).html(info.data[i].rh);
       }
       $(".tempHigh").append(fahrenheitSymbol);
       $(".tempLow").append(fahrenheitSymbol);
