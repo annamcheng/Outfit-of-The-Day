@@ -56,19 +56,10 @@ h1 {
   align-items: center;
 }
 
-.carousel-container {
-  margin-bottom: 10px;
-  width: 500px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .outfit-images > img {
   height: 300px;
   object-fit: cover;
   padding: 20px;
-  /* display: none; */
   display: inline-block;
 }
 
@@ -77,26 +68,12 @@ h1 {
     object-fit: cover;
     width: 80px;
   }
+  body{
+      font-size: 12px;
+  }
 }
 
 .outfit-images > img:hover {
   opacity: 75%;
   cursor: pointer;
-}
-
-/* .outfit-images img:first-of-type {
-  display: block;
-} */
-
-.carousel-button {
-  align-self: center;
-  cursor: pointer;
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.495);
-  border-radius: 20px;
-  padding: 10px;
-}
-
-.carousel-button:hover {
-  background-color: rgba(250, 171, 142, 0.692);
 }
