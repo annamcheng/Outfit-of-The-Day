@@ -17,7 +17,7 @@ $(() => {
    
   //CLOSET BUTTON
   $("#closet-button").on("click", () => {
-    $("img").fadeIn(2000);
+    $(".ui-widget-content").fadeIn(2000);
     $("#drag-msg").show();
     $("#closet-button").hide();
     $("body").append($closeButton);
@@ -26,7 +26,7 @@ $(() => {
     
   //CLOSE BUTTON
   $closeButton.on("click", () => {
-    $("img").fadeOut(1000);
+    $(".ui-widget-content").fadeOut(1000);
     $("#drag-msg").hide();
     $("#closet-button").show();
     $closeButton.hide();
