@@ -2,11 +2,25 @@ $(() => {
   const $container = $("<div class='week-container'>");
   //CHANGE THE DAY OF THE WEEK TO BE DYNAMIC
   const dayOfTheWeek = ["monday", "tuesday", "wednesday", "thursday", "friday"];
-
+  const $closeButton = $("<br /><button id='close-button'>Close closet</button><br />")
   const fahrenheitSymbol = $("<span>&#8457;</span>");
   const percentageSymbol = $("<span>&#37;</span>");
 
   $("body").append($container);
+  $("#closet-button").on("click", () => {
+    $("img").fadeIn(2000);
+    $("#drag-msg").show();
+    $("#closet-button").hide();
+    $('body').append($closeButton)
+    $closeButton.show()
+  });
+
+  $closeButton.on("click", () => {
+      $("img").fadeOut(1000);
+      $("#drag-msg").hide();
+      $("#closet-button").show()
+      $closeButton.hide()
+  });
 
   for (let i = 0; i < 5; i++) {
     const $weekDiv = $(

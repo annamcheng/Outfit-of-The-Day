@@ -34,7 +34,7 @@ h1 {
   height: 350px;
 }
 
-#closet-button {
+#closet-button, #close-button {
   font-family: "Arima Madurai", cursive;
   font-size: 14px;
   text-transform: uppercase;
@@ -46,10 +46,21 @@ h1 {
   letter-spacing: 1px;
 }
 
-#closet-button:hover {
-  background-color: rgb(250, 237, 212);
+#close-button{
+    display: none;
+    background-color: rgb(233, 213, 185);
 }
 
+#closet-button:hover {
+  background-color: rgb(250, 237, 212);
+  border-radius: 10px;
+}
+
+#drag-msg{
+    display:none;
+    font-style: italic;
+    color: grey;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -60,7 +71,7 @@ h1 {
   height: 300px;
   object-fit: cover;
   padding: 20px;
-  display: inline-block;
+  display: none;
 }
 
 @media only screen and (max-width: 600px){
@@ -69,9 +80,12 @@ h1 {
     width: 80px;
   }
   body{
-      font-size: 12px;
+      font-size:12px;
   }
 }
+
+
+
 
 .outfit-images > img:hover {
   opacity: 75%;
