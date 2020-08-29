@@ -71,23 +71,15 @@ $(() => {
   //DROPPABLE SQUARES BENEATH
   for (let i = 0; i < 5; i++) {
     const $outfitDiv = $(
-      `<div id="${$squares[i]}${i}"  class="ui-widget-header droppable outfit"></div>`
+      `<div id="${$squares[i]}${i}"  class="outfit"></div>`
     );
     $container.append($outfitDiv);
   }
     
-  //DRAGGABLE & DROPPABLE FUNCTION
-  $(function () {
-    $(".draggable").draggable();
-    $(".droppable").droppable({
-      drop: function (event, ui) {
-        $(this)
-          .addClass("ui-state-highlight")
-          .find($("img"))
-          .css("background", "white");
-      },
+  //DRAGGABLE FUNCTION
+    $(function () {
+        $(".draggable").draggable();
     });
-  });
     
   //FORM TO SUBMIT YOUR ZIP CODE TO GRAB API
   $("form").on("submit", (event) => {
