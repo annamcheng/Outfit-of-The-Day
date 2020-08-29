@@ -82,6 +82,10 @@ h1 {
   body{
       font-size:12px;
   }
+  #closet-button, #close-button{
+      font-size: 12px;
+      padding: 1px;
+  }
 }
 
 
